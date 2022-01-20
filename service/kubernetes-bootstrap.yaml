@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kubernetes-bootstrap-yaml
+  name: kubernetes-bootstrap-v1
   labels:
     app: my-bootstrap
 spec:
@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kubernetes-bootstrap-yaml
+  name: kubernetes-bootstrap-v2
   labels:
     app: my-bootstrap
 spec:
