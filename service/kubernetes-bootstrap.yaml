@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kubernetes-bootstrap-v1
+  name: kubernetes-bootcamp-v1
   labels:
-    app: my-bootstrap
+    app: my-bootcamp
 spec:
   containers:
-  - name: kubernetes-bootstrap
-    image: gcr.io/google-samples/kubernetes-bootcamp:v1
+  - name: kubernetes-bootcamp
+    image: jocatalin/kubernetes-bootcamp:v1
     ports:
     - containerPort: 8080
     
@@ -18,10 +18,10 @@ kind: Pod
 metadata:
   name: kubernetes-bootstrap-v2
   labels:
-    app: my-bootstrap
+    app: my-bootcamp
 spec:
   containers:
-  - name: kubernetes-bootstrap
-    image: gcr.io/google-samples/kubernetes-bootcamp:v2
+  - name: kubernetes-bootcamp
+    image: jocatalin/kubernetes-bootcamp:v2
     ports:
     - containerPort: 8080
