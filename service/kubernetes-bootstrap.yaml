@@ -2,9 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: kubernetes-bootstrap-yaml
-spec:
-  selector:
+  labels:
     app: my-bootstrap
+spec:
   containers:
   - name: kubernetes-bootstrap
     image: gcr.io/google-samples/kubernetes-bootcamp:v1
@@ -17,9 +17,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: kubernetes-bootstrap-yaml
-spec:
-  selector:
+  labels:
     app: my-bootstrap
+spec:
   containers:
   - name: kubernetes-bootstrap
     image: gcr.io/google-samples/kubernetes-bootcamp:v2
