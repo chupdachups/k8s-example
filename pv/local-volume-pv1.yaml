@@ -16,8 +16,6 @@ spec:
   claimRef:
     name: test-local-pvc1
     namespace:default
-#  local:
-#    path: /data/volumes/pv1
   nodeAffinity:
     required:
       nodeSelectorTerms:
