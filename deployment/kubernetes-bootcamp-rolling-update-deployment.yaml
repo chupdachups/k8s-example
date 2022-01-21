@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bootcamp-deployment
+  labels:
+    app: my-bootcamp
+spec:
+  replicas: 3
+  strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 3
+    maxUnavailable: 1
+    imeoutSeconds: 100
+    intervalSeconds: 5
+    updatePeriodSeconds: 5
+  selector:
+    matchLabels:
+      app: my-bootcamp
+  template:
+    metadata:
+      labels:
+        app: my-bootcamp
+    spec:
+      containers:
+      - name: kubernetes-bootcamp
+        image: gcr.io/google-samples/kubernetes-bootcamp:v1
+        ports:
+        - containerPort: 8080
