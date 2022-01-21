@@ -11,11 +11,13 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   #persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
-  hostPath:
+#  hostPath:
+#    path: /data/volumes/pv1
+#  claimRef:
+#    name: test-local-pvc1
+#    namespace:default
+  local:
     path: /data/volumes/pv1
-  claimRef:
-    name: test-local-pvc1
-    namespace:default
   nodeAffinity:
     required:
       nodeSelectorTerms:
