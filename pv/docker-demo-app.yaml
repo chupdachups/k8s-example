@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: local-pv-demo-app
+  labels:
+    app: my-local-pv-demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-local-pv-demo-app
+  template:
+    metadata:
+      labels:
+        app: my-local-pv-demo-app
+    spec:
+      containers:
+      - name: spring-boot-demo-app
+        image: chupdachups/k8s-pv-test-demo-app 
+        ports:
+        - containerPort: 8070
+        volumeMounts:
+        - mountPath: "/my-src/docker-test-app/logs"
+      volumes:
+        - name: local-pv1
+          persistentVolumeClaim:
+            claimName: test-local-pvc1
