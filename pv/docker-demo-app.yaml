@@ -20,7 +20,8 @@ spec:
         ports:
         - containerPort: 8070
         volumeMounts:
-        - mountPath: "/my-src/docker-test-app/logs"
+        - name: local-pv1
+          mountPath: "/my-src/docker-test-app/logs"
       volumes:
         - name: local-pv1
           persistentVolumeClaim:
