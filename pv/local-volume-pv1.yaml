@@ -3,16 +3,14 @@ kind: PersistentVolume
 metadata:
   name: test-local-pv1
 spec:
-#  capacity:
-#    storage: 10Gi
+  capacity:
+    storage: 30Mi
   accessModes:
   - ReadWriteMany
   # ReadWriteOnce, ReadOnlyMany
   persistentVolumeReclaimPolicy: Delete
   #persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
-#  hostPath:
-#    path: /data/volumes/pv1
   claimRef:
     name: test-local-pvc1
     namespace: default
