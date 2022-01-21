@@ -7,6 +7,6 @@ spec:
   - ReadWriteMany
   # ReadWriteOnce, ReadOnlyMany
   storageClassName: local-storage
-#  resources:
-#    requests:
-#      storage: 10Gi
+  resources:
+    requests:
+      storage: 10Mi
