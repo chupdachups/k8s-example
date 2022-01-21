@@ -13,9 +13,9 @@ spec:
   storageClassName: local-storage
 #  hostPath:
 #    path: /data/volumes/pv1
-#  claimRef:
-#    name: test-local-pvc1
-#    namespace:default
+  claimRef:
+    name: test-local-pvc1
+    namespace: default
   local:
     path: /data/volumes/pv1
   nodeAffinity:
