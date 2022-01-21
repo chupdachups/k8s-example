@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: kubernetes-bootcamp
-    image: gcr.io/google-samples/kubernetes-bootcamp:v1
+    image: jocatalin/kubernetes-bootcamp:v1
     ports:
     - containerPort: 8080

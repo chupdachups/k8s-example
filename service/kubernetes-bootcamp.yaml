@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kubernetes-bootstrap-v2
+  name: kubernetes-bootcamp-v2
   labels:
     app: my-bootcamp
 spec:
