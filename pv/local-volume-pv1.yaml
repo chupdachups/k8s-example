@@ -22,4 +22,4 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - k8s-worker-node1
+          - K8s-worker-node1
