@@ -11,13 +11,13 @@ rules:
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
-metatdata:
+metadata:
   name: custom-rolebinding
   namespace: msaclass-a
 subjects:
-  - kind: ServiceAccount
-    name: sa-msaclass-a
-    namespace: msaclass-a
+- kind: ServiceAccount
+  name: sa-msaclass-a
+  namespace: msaclass-a
 roleRef:
   kind: Role
   name: custom-role
