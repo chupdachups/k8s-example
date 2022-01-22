@@ -15,7 +15,7 @@ metatdata:
   name: custom-rolebinding
   namespace: msaclass-a
 subjects:
-  kind: ServiceAccount
+- kind: ServiceAccount
   name: sa-msaclass-a
   namespace: msaclass-a
 roleRef:
