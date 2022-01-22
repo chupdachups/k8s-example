@@ -7,6 +7,7 @@ rules:
 - apiGroups: [""]
   resources: ["pods"]
   verbs: ["get", "watch", "list"]
+  
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -16,12 +17,11 @@ subjects:
 - kind: ServiceAccount
   name: sa-msaclass-b
   namesapce: msaclass-b
-#  apiGroup: rbac.authorization.k8s.io
+  apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
   name: custom-cluster-role
-#  apiGroup: rbac.authorization.k8s.io
-  
+  apiGroup: rbac.authorization.k8s.io  
 #default 제공되는 clusterrole이 있다. cluster-admin, admin, edit, view
 #제공되는 role를 사용할 시에 clusterrole 생성없이 아래와 같이 rolebinding에 붙여서 쓸수 있다.
 #roleRef: 
