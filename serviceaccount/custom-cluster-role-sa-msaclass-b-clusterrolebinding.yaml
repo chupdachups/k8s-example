@@ -17,7 +17,6 @@ subjects:
 - kind: ServiceAccount
   name: sa-msaclass-b
   namespace: msaclass-b
-#  apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
   name: custom-cluster-role
