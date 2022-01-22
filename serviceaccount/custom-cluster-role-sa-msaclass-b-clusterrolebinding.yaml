@@ -1,0 +1,32 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: custom-cluster-rolebinding
+subjects:
+- kind: ServiceAccount
+  name: sa-msaclass-b
+  namesapce: msaclass-b
+#  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: custom-cluster-role
+#  apiGroup: rbac.authorization.k8s.io
+  
+#default 제공되는 clusterrole이 있다. cluster-admin, admin, edit, view
+#제공되는 role를 사용할 시에 clusterrole 생성없이 아래와 같이 rolebinding에 붙여서 쓸수 있다.
+#roleRef: 
+#  kind: ClusterRole
+#  name: view
+#  apiGroup: rbac.authorization.k8s.io
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  # "namespace" 를 사용하지 않는다. ClusterRole은 Cluster scope
+  name: custom-cluster-role
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "watch", "list"]
