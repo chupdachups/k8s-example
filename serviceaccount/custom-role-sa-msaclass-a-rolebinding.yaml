@@ -4,10 +4,9 @@ metadata:
   name: custom-role
   namespace: msaclass-a
 rules:
-- apiGroup: [""] # "" indicates the core API group
+- apiGroups: [""] # "" indicates the core API group
   resources: ["pods"]
   verbs: ["get", "watch", "list"]
-  apiGroup: rbac.authorization.k8s.io
   
 ---
 kind: RoleBinding
