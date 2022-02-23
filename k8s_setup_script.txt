@@ -83,7 +83,7 @@ $ ifconfig
 
 이제 셋업 시작~!! (뒤의 IP는 방금 확인한 IP로 교체!!) private ip - 10.0.0.4  넣어야 하나 공용 IP 52.141.61.189 넣어야하나?
 
-$ sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=10.0.0.4
+$ sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=10.0.0.7
 
 
 
@@ -125,7 +125,10 @@ Worker Node 셋업
 $ sudo kubeadm join 10.0.0.4:6443 --token cx9a69.npisg7puk0bwughl \
     --discovery-token-ca-cert-hash sha256:a7f0ae143472a9e4c40dc438866ba22c3918c10cd42f59067f298744d8afb4ec
 
-
+sudo kubeadm join 10.0.0.7:6443 --token 0e522s.m5x64jtdb885f4n8 \
+    --discovery-token-ca-cert-hash sha256:a5b6e6562d35e7249a8eb98f94ccbfc1d67b4f7f4fdde87b59b8776fc9c9ab20
+	
+	
 docker 설치
 
 
@@ -263,3 +266,10 @@ kubectl taint nodes docker-vm node-role.kubernetes.io=master:NoSchedule-
 
 
 
+
+
+
+
+##worker node reset 후 다시 접근
+worker node 에서 실행 후  node add 명령 다시 실행
+sudo kubeadm reset 
