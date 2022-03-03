@@ -30,7 +30,7 @@ spec:
       resources:
         requests:
           storage: 100Mi
-		  
+
 ---
 apiVersion: v1
 kind: Service
@@ -45,3 +45,4 @@ spec:
   clusterIP: None
   selector:
     app: nginx
+    
