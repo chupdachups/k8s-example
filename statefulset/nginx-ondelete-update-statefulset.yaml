@@ -8,8 +8,6 @@ spec:
   selector:
     matchLabels:
       app: nginx
-  updateStrategy:
-    type: OnDelete
   template:
     metadata:
       labels:
@@ -21,6 +19,8 @@ spec:
         ports:
         - containerPort: 80
           name: web
+    updateStrategy:
+      type: OnDelete
 ---
 apiVersion: v1
 kind: Service
