@@ -18,6 +18,7 @@ spec:
     namespace: default
   local:
     path: /data/volumes/pv1
+  #local storage에는 무조건 필요함  
   nodeAffinity:
     required:
       nodeSelectorTerms:
