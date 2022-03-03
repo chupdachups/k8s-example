@@ -6,11 +6,9 @@ metadata:
     app: my-bootcamp
 spec:
   replicas: 3
-  strategy:
+  updateStrateqy:
+    # 기본은 OnDeleted
     type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 3
-      maxUnavailable: 1
   selector:
     matchLabels:
       app: my-bootcamp

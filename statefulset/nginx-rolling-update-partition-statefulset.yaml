@@ -8,6 +8,10 @@ spec:
   selector:
     matchLabels:
       app: nginx
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      partition: 1
   template:
     metadata:
       labels:
@@ -15,20 +19,10 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: k8s.gcr.io/nginx-slim:0.3
+        image: k8s.gcr.io/nginx-slim:0.7
         ports:
         - containerPort: 80
           name: web
-#동적 pv 구성을 위한 설정 - default storage class가 반드시 있어야한다.
-#  volumeClaimTemplates:
-#  - metadata:
-#      name: statefulset-pv
-#    spec:
-#      accessModes: [ "ReadWriteOnce" ]
-#      storageClassName: local-storage
-#      resources:
-#        requests:
-#          storage: 10Mi
 ---
 apiVersion: v1
 kind: Service
