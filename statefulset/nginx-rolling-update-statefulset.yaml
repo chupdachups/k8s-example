@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: nginx
-  strategy:
+  updateStrategy:
     type: RollingUpdate
   template:
     metadata:
