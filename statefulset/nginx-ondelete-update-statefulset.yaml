@@ -1,10 +1,12 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: web
+  name: web-ondelete
 spec:
   serviceName: "nginx"
   replicas: 3
+  updateStrategy:
+      type: OnDelete
   selector:
     matchLabels:
       app: nginx
@@ -19,8 +21,6 @@ spec:
         ports:
         - containerPort: 80
           name: web
-    updateStrategy:
-      type: OnDelete
 ---
 apiVersion: v1
 kind: Service
