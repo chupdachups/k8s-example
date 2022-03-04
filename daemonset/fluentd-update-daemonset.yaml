@@ -9,6 +9,7 @@ spec:
   selector:
     matchLabels:
       name: fluentd-elasticsearch
+  minReadySeconds: 15
   template:
     metadata:
       labels:
