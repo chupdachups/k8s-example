@@ -13,6 +13,7 @@ spec:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 2
+  minReadySeconds: 15
   template:
     metadata:
       labels:
