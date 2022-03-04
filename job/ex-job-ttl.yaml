@@ -1,9 +1,9 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ex-job
+  name: ex-job-ttl10
 spec:
-  ttlSecondsAfterFinished: 1000
+  ttlSecondsAfterFinished: 10
   template:
     spec:
       containers:

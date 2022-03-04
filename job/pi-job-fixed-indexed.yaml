@@ -1,10 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ex-job
+  name: ex-job-fixed-indexed
 spec:
   ttlSecondsAfterFinished: 1000
   template:
+    completionMode: Indexed
+    completions: 5
     spec:
       containers:
       - name: pi
