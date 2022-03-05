@@ -4,9 +4,9 @@ metadata:
   name: ex-parall-job
 spec:
   ttlSecondsAfterFinished: 1000
+  completions: 3
+  parallelism: 3
   template:
-    completions: 3
-	parallelism: 3
     spec:
       containers:
       - name: pi

@@ -4,8 +4,8 @@ metadata:
   name: ex-job-fixed
 spec:
   ttlSecondsAfterFinished: 1000
+  completions: 3
   template:
-    completions: 5
     spec:
       containers:
       - name: pi

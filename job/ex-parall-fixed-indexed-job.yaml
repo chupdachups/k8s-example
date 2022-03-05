@@ -4,9 +4,9 @@ metadata:
   name: ex-job-fixed-indexed
 spec:
   ttlSecondsAfterFinished: 1000
+  completionMode: Indexed
+  completions: 3
   template:
-    completionMode: Indexed
-    completions: 5
     spec:
       containers:
       - name: pi
