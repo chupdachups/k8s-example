@@ -1,15 +1,37 @@
+#v1.21 이상 beta 기능 Indexed job
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: ex-job-fixed-indexed
 spec:
   ttlSecondsAfterFinished: 1000
+  completions: 5
+  parallelism: 3
   completionMode: Indexed
-  completions: 3
   template:
     spec:
-      containers:
-      - name: pi
-        image: perl
-        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
       restartPolicy: Never
+      initContainers:
+      - name: 'input'
+        image: 'docker.io/library/bash'
+        command:
+        - "bash"
+        - "-c"
+        - |
+          items=(foo bar baz qux xyz)
+          echo ${items[$JOB_COMPLETION_INDEX]} > /input/data.txt          
+        volumeMounts:
+        - mountPath: /input
+          name: input
+      containers:
+      - name: 'worker'
+        image: 'docker.io/library/busybox'
+        command:
+        - "rev"
+        - "/input/data.txt"
+        volumeMounts:
+        - mountPath: /input
+          name: input
+      volumes:
+      - name: input
+        emptyDir: {}
