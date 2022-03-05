@@ -3,6 +3,9 @@ kind: CronJob
 metadata:
   name: ex-cronjob
 spec:
+  # 1분 마다 실행
+  # cron helper
+  # https://crontab.guru/
   schedule: "*/1 * * * *"
   jobTemplate:
     spec:
