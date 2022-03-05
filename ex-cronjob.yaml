@@ -1,4 +1,5 @@
-apiVersion: batch/v1
+# v1.21 이상부터는 batch/v1
+apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: ex-cronjob
@@ -7,6 +8,7 @@ spec:
   # cron helper
   # https://crontab.guru/
   schedule: "*/1 * * * *"
+  ttlSecondsAfterFinished: 180
   jobTemplate:
     spec:
       template:
