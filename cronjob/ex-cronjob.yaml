@@ -1,5 +1,5 @@
-# v1.21 이상부터는 batch/v1
-apiVersion: batch/v1beta1
+# v1.20 이하는 batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: ex-cronjob
