@@ -13,12 +13,12 @@ data:
     cluster_formation.k8s.address_type = hostname
     
     cluster_formation.node_cleanup.only_log_warning = true
-	
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: rabbitmq
+
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
@@ -44,21 +44,18 @@ subjects:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  
   name: rabbitmq
-  
-  
+
 ---
 apiVersion: v1
-	kind: Secret
-	metadata:
-	  name: rabbit-secret
-	type: Opaque
-	data:
-      RABBITMQ_ERLANG_COOKIE: V0lXVkhDRFRDSVVBV0FOTE1RQVc=
-	  
----
+kind: Secret
+metadata:
+  name: rabbit-secret
+  type: Opaque
+data:
+  RABBITMQ_ERLANG_COOKIE: V0lXVkhDRFRDSVVBV0FOTE1RQVc=
 
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -119,9 +116,9 @@ spec:
         - name: K8S_HOSTNAME_SUFFIX
           value: .rabbitmq.$(RABBIT_POD_NAMESPACE).svc.cluster.local
         volumeMounts:
-        - name: data
-          mountPath: /var/lib/rabbitmq
-          readOnly: false
+#        - name: data
+#          mountPath: /var/lib/rabbitmq
+#          readOnly: false
         - name: config-file
           mountPath: /config/
         - name: plugins-file
@@ -135,15 +132,16 @@ spec:
         configMap:
           name: rabbitmq-config
           defaultMode: 0755
-  volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "gp2"
-      resources:
-        requests:
-          storage: 2Gi
+#  volumeClaimTemplates:
+#  - metadata:
+#      name: data
+#    spec:
+#      accessModes: [ "ReadWriteOnce" ]
+#      storageClassName: "gp2"
+#      resources:
+#        requests:
+#          storage: 2Gi
+
 ---
 apiVersion: v1
 kind: Service
@@ -161,17 +159,16 @@ spec:
   selector:
     
     app: rabbitmq
-	
----
 
+---
 kind: Ingress
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: kubernetes-dashboard
-  namespace: kubernetes-dashboard
+  name: rabbitmq
+  namespace: rabbits
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   rules:
   - host: myrabbit.io
