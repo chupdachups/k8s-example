@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
       - name: eureka
-        image: chupdachups/spring-cloud-eureka:docker
+        image: chupdachups/spring-cloud-eureka:k8s
         ports:
         - containerPort: 8761
 #        resources:
