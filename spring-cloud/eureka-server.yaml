@@ -53,13 +53,13 @@ spec:
 #            memory: "1200Mi"
 #            cpu: "500m"
         env:
-        - name: eureka-servers
+        - name: eureka_servers
           valueFrom:
             configMapKeyRef:
               name: eureka-cm
               key: eureka_service_address
         - name: profile
-          value: docker
+          value: k8s
         - name: service_port
           value: "8761"
         livenessProbe:
