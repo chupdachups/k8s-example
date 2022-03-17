@@ -24,7 +24,7 @@ spec:
         - name: mq_host
           value: rabbitmq.rabbits.svc.cluster.local
         - name: mq_port
-          value: 5672
+          value: "5672"
         - name: mq_id
           value: guest
         - name: mq_pw
