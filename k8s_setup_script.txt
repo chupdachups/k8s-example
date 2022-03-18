@@ -237,3 +237,8 @@ curl http://10.244.1.2:8080
 ##worker node reset 후 다시 접근
 worker node 에서 실행 후  node add 명령 다시 실행
 sudo kubeadm reset 
+
+
+###node 역할명 설정
+kubectl label node {노드명} node-role.kubernetes.io/worker=worker
+kubectl label node k8s-worker-01 node-role.kubernetes.io/worker=worker
