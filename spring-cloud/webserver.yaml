@@ -6,7 +6,7 @@ metadata:
   labels:
     app: spring-cloud
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: spring-cloud-webserver
@@ -30,7 +30,7 @@ spec:
         - name: mq_pw
           value: guest
         - name: service_port
-          value: "8082"
+          value: "5011"
         - name: profile
           value: docker
         - name: eureka_servers
@@ -64,7 +64,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   rules:
-  - host: mygateway.io
+  - host: mywebserver.io
     http:
       paths:
       - path: /
