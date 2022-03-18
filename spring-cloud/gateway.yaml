@@ -17,10 +17,10 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: chupdachups/spring-cloud-gateway:docker
+        image: chupdachups/spring-cloud-gateway:k8s
         ports:
         - containerPort: 8082
-        env: 
+        env:
         - name: mq_host
           value: rabbitmq.rabbits.svc.cluster.local
         - name: mq_port
@@ -32,7 +32,7 @@ spec:
         - name: service_port
           value: "8082"
         - name: profile
-          value: docker
+          value: k8s
         - name: eureka_servers
           valueFrom:
             configMapKeyRef:
@@ -40,6 +40,8 @@ spec:
               key: eureka_service_address
         - name: config_servers
           value: http://config
+        - name: config_label
+          value: add_k8s
 ---
 apiVersion: v1
 kind: Service
