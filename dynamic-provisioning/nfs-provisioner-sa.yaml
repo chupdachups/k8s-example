@@ -1,0 +1,8 @@
+#주의) ClusterRoleBinding과 RoleBinding의 namespace는 Provisioner를 배포한 namespace와 동일해야함!!
+
+# ServiceAccount
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: nfs-client-provisioner
+  namespace: nfs-provisioner
